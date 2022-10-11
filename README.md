@@ -5,7 +5,11 @@
 * some functions for PHP
 
 
-## 运行
+## 使用
 ```
-composer get 
+composer require cnphp/helper:dev-master
+
+
+require __DIR__ . '/vendor/autoload.php';
+my_function("hello world!");
 ```
