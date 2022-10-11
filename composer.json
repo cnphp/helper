@@ -1,0 +1,20 @@
+{
+    "name": "cnphp/helper",
+    "description": "some help functions.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+    	"files": [ "src/functions.php" ],
+        "psr-4": {
+            "Cnphp\\Helper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fzapp",
+            "email": "fzapp@fzapp.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
