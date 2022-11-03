@@ -12,3 +12,16 @@ if (!function_exists('my_function')) {
         return Helper::my_function($var);
     }
 }
+
+
+
+if (!function_exists('my_go')) {
+    /**
+     * @param mixed
+     * @return void
+     */
+    function my_go($var = 0)
+    {
+        return Helper::run($var);
+    }
+}

@@ -17,4 +17,22 @@ class Helper
     {
         return $var;
     }
+
+    /**
+     * My function.
+     *
+     * @param  mixed $var
+     * @return mixed
+     */
+    public static function run($var = 0)
+    {
+        $util = \FFI::cdef(
+            "void run(int p0);",
+            __DIR__ . "/libutil.so"
+        );
+        
+        return $util->run($var);
+    }
+
+
 }
