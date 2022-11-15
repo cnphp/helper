@@ -36,6 +36,6 @@ if (!function_exists('php_get_sh_uuid')) {
      */
     function php_get_sh_uuid($typeid, $clientType, $cityid=0)
     {
-        return Helper::get_sh_uuid($typeid, $clientType, $cityid=0);
+        return Helper::get_sh_uuid($typeid, $clientType, $cityid);
     }
 }

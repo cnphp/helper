@@ -45,8 +45,9 @@ class Helper
     public static function get_sh_uuid($typeid, $clientType, $cityid=0)
     {
         $util = \FFI::cdef(
-            "typedef struct { const char *p; ptrdiff_t n; } GoString;
-            char*  getShUuid(int p0, GoString p1, int p2);",
+            "typedef struct { char* p; long n } GoString;
+            typedef long GoInt;
+            char*  getShUuid(GoInt p0, GoString p1, GoInt p2);",
             __DIR__ . "/libutil.so"
         );
 
@@ -54,9 +55,10 @@ class Helper
         $result = $util->getShUuid($typeid, $clientStr, $cityid);
         $words = \FFI::string($result);
        
+        sleep(1);
         //FFI::free($result);
         //echo  $words;
-        return $words;
+        return json_decode($words, true);
     }
 
     
