@@ -66,7 +66,7 @@ class Helper
     {
         $goStr = $ffi->new('GoString', 0);
         $size = strlen($str);
-            $cStr = FFI::new("char[$size]", 0);
+            $cStr = \FFI::new("char[$size]", 0);
 
         \FFI::memcpy($cStr, $str, $size);
         $goStr->p = $cStr;
