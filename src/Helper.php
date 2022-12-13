@@ -51,7 +51,7 @@ class Helper
             __DIR__ . "/libutil.so"
         );
 
-        $clientStr = makeGoStr($util, $clientType);
+        $clientStr = self::makeGoStr($util, $clientType);
         $result = $util->getShUuid($typeid, $clientStr, $cityid);
         $words = \FFI::string($result);
        
@@ -62,7 +62,7 @@ class Helper
     }
 
     
-    public function makeGoStr(\FFI $ffi, string $str): \FFI\CData
+    public static function makeGoStr(\FFI $ffi, string $str): \FFI\CData
     {
         $goStr = $ffi->new('GoString', 0);
         $size = strlen($str);
