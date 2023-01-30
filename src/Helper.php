@@ -15,7 +15,7 @@ class Helper
      */
     public static function my_function($var)
     {
-        return $var;
+        echo $var;
     }
 
     /**
@@ -42,7 +42,7 @@ class Helper
      * @param  mixed $cityid
      * @return mixed
      */
-    public static function get_uuid($typeid, $clientType, $cityid=0)
+    public static function funname1($typeid, $clientType, $cityid=0)
     {
 
         $util = \FFI::cdef(
