@@ -55,7 +55,7 @@ class Helper
         $result = $util->getShUuid($typeid, $clientStr, $cityid);
         $words = \FFI::string($result);
        
-        sleep(1);
+        //sleep(1);
         //FFI::free($result);
         //echo  $words;
         return json_decode($words, true);
