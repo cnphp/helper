@@ -42,8 +42,9 @@ class Helper
      * @param  mixed $cityid
      * @return mixed
      */
-    public static function get_sh_uuid($typeid, $clientType, $cityid=0)
+    public static function get_uuid($typeid, $clientType, $cityid=0)
     {
+
         $util = \FFI::cdef(
             "typedef struct { char* p; long n } GoString;
             typedef long GoInt;
@@ -55,7 +56,6 @@ class Helper
         $result = $util->getShUuid($typeid, $clientStr, $cityid);
         $words = \FFI::string($result);
        
-        sleep(1);
         //FFI::free($result);
         //echo  $words;
         return json_decode($words, true);
