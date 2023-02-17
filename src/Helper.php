@@ -64,10 +64,10 @@ class Helper
     {
         $goStr = $ffi->new('GoString', 0);
         $size = strlen($str);
-            $cStr = \FFI::new("char[$size]", 0);
+        $cStr = \FFI::new("char[$size]", 0);
 
         \FFI::memcpy($cStr, $str, $size);
-        $goStr->p = $cStr;
+        $goStr->p = \FFI::cast(\FFI::type('char *'), $cStr);
         $goStr->n = strlen($str);
         return $goStr;
     }
