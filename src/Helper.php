@@ -63,13 +63,19 @@ class Helper
     public static function makeGoStr(\FFI $ffi, string $str): \FFI\CData
     {
         $goStr = $ffi->new('GoString', 0);
-        $size = strlen($str);
-        $cStr = \FFI::new("char[$size]", 0);
-
-        \FFI::memcpy($cStr, $str, $size);
-        $goStr->p = \FFI::cast(\FFI::type('char *'), $cStr);
-        $goStr->n = strlen($str);
-        return $goStr;
+        try {
+            $size = strlen($str);
+            $cStr = \FFI::new("char[$size]", 0);
+    
+            \FFI::memcpy($cStr, $str, $size);
+            $goStr->p = \FFI::cast(\FFI::type('char *'), $cStr);
+            $goStr->n = strlen($str);
+            return $goStr;
+        } catch(\FFI\Exception $e) {
+            return $goStr;
+        } catch(\Exception $e) {
+            return $goStr;
+        }        
     }
 
 }
